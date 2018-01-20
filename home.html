@@ -1,0 +1,51 @@
+<html>
+<head>
+    <title>Simple login</title>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js">  </script>
+    <script>
+        $(document).ready(function(){
+            var user,pass;
+            $("#submit").click(function(){
+                userName=$("#userName").val();
+                userLocation=$("#userLocation").val();
+                userLocation2=$("#userLocation2").val();
+                userPhone=$("#userPhone").val();
+                userDeliveryTime=$("#userDeliveryTime").val();
+                productName=$("#productName").val();
+                productSize=$("#productSize").val();
+                productQuantity=$("#productQuantity").val();
+                productColor=$("#productColor").val();
+
+
+
+                $.post("http://localhost:3000/login",{userName: userName,userLocation: userLocation,userLocation2: userLocation2,userPhone: userPhone,userDeliveryTime: userDeliveryTime,productName: productName,productSize: productSize,productQuantity: productQuantity,productColor: productColor }, function(data){
+                    if(data==='done')
+                    {
+                        alert("login success");
+                    }
+                });
+            });
+        });
+    </script>
+</head>
+<body>
+<h1>Hello people !</h1>
+
+<ul>
+    <li>User Name :<input type="TEXT" id="userName" size="40"></li>
+    <li>User Location:<input type="TEXT" id="userLocation" size="40"></li>
+    <li>User Location2:<input type="TEXT" id="userLocation2" size="40"></li>
+    <li>User Phone:<input type="TEXT" id="userPhone" size="40"></li>
+    <li>User DeliveryTime:<input type="TEXT" id="userDeliveryTime" size="40"></li>
+
+
+    <li>Product Name:<input type="TEXT" id="productName" size="40"></li>
+    <li>Product Size:<input type="TEXT" id="productSize" size="40"></li>
+    <li>Product Quantity:<input type="TEXT" id="productQuantity" size="40"></li>
+    <li>Product Color:<input type="TEXT" id="productColor" name="productColor" size="40"></li>
+
+</ul>
+
+<input type="button" id="submit" value="Submit">
+</body>
+</html>>
