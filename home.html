@@ -4,7 +4,6 @@
     <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js">  </script>
     <script>
         $(document).ready(function(){
-            var user,pass;
             $("#submit").click(function(){
                 userName=$("#userName").val();
                 userLocation=$("#userLocation").val();
@@ -18,7 +17,7 @@
 
 
 
-                $.post("http://localhost:3000/login",{userName: userName,userLocation: userLocation,userLocation2: userLocation2,userPhone: userPhone,userDeliveryTime: userDeliveryTime,productName: productName,productSize: productSize,productQuantity: productQuantity,productColor: productColor }, function(data){
+                $.post("http://localhost:3000/emailSend",{userName: userName,userLocation: userLocation,userLocation2: userLocation2,userPhone: userPhone,userDeliveryTime: userDeliveryTime,productName: productName,productSize: productSize,productQuantity: productQuantity,productColor: productColor }, function(data){
                     if(data==='done')
                     {
                         alert("login success");
